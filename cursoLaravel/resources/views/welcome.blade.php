@@ -89,6 +89,19 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
+
+                <form action="/contato" method="post">
+                    {{ csrf_field() }}
+                    <input type="text" name="nome" placeholder="nome">
+                    <input type="submit">
+                </form>
+
+                <form action="/contato" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="put">
+                    <input type="text" name="nome" placeholder="nome put">
+                    <input type="submit">
+                </form>
             </div>
         </div>
     </body>

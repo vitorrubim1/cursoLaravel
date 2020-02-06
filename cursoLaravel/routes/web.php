@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/contato', ['uses' => 'ContatoController@index']);
+
+
+Route::post('/contato', ['uses' => 'ContatoController@criar']);
+
+Route::put('/contato', ['uses' => 'ContatoController@editar']);
