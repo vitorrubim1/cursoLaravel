@@ -17,4 +17,9 @@ class CursoController extends Controller
             e passando através do compact a variável $registro 
         */
     }
+
+    //METÓDO DE ADICIONAR 
+    public function adicionar(){
+        return view ('admin.cursos.adicionar');
+    }
 }
