@@ -7,8 +7,7 @@
 
     <br><h3 class="col px-md-5">Lista de cursos</h3><br>
 
-
-    <dl class="row">
+    <div class="row">
         <table class="table table-hover table-dark">
             <thead>
                 <tr>
@@ -22,24 +21,27 @@
             </thead>
             <tbody>
                 @foreach($registros as $registro)
-                <tr>
-                    <th>{{ $registro -> id }}/th>
-                    <td>{{ $registro -> titulo }}</td>
-                    <td>{{ $registro -> descricao }}</td>
-                    <td>
-                        <img src="{{ assets ($registro -> imagem) }}" alt="{{ $registro -> titulo }}" width="120">
-                    </td> <!-- "assets" é o helper do laravel, auxilia na procura de imagem -->
-                    <td>{{ $registro -> publicado }}</td>
-                    <td>
-                        <a class="btn btn-md btn-black" href="{{ route('admin.cursos.editar', $registro->id) }}"> Editar </a>
-                        <a class="btn btn-md btn-danger" href="{{ route('admin.cursos.apagar', $registro->id) }}"> Apagar </a>
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ $registro->id }}</td>
+                        <td>{{ $registro->titulo }}</td>
+                        <td>{{ $registro->descricao }}</td>
+                        <td>
+                            <img width="120"  src="{{asset($registro->imagem)}}" alt="{{ $registro->titulo }}">
+                        </td> <!-- "asset" é o helper do laravel, auxilia na procura de imagem -->
+                        <td>{{ $registro->publicado }}</td>
+                        <td>
+                            <a 
+                                class="btn btn-md btn-light" 
+                                href="{{ route('admin.cursos.editar', $registro->id) }}"> Editar </a> 
+                            <a 
+                                class="btn btn-md btn-danger" 
+                                href="{{ route('admin.cursos.deletar', $registro->id) }}"> Apagar </a>
+                        </td>
+                    </tr>
                 @endforeach
-
             </tbody>
         </table>
-    </dl>
+    </div>
 
     <dl class="row">
         <a class="btn btn-outline-dark" href="{{ route('admin.cursos.adicionar') }}">Adicionar Curso</a>

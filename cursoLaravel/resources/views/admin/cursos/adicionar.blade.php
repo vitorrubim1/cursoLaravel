@@ -15,7 +15,7 @@
             
             @include('admin.cursos._form') <!-- PARA REUTILIZAR O MESMO FORMULÁRIO NO EDITAR -->
             
-            <button class="btn btn-danger">Salvar</button>
+            <button class="btn btn-outline-dark btn-lg">Salvar</button>
         </form>
         
     

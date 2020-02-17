@@ -34,9 +34,24 @@
     </div>
 
 <!--IMAGEM-->
-    <div class="custom-file col-md-4" style="margin-left:5.5px">
-        <input type="file" name="imagem" class="custom-file-input" >
-        <label class="custom-file-label">Escolha uma imagem</label>
+    <div class="form-group col-md-5">
+        
+            <input 
+                type="file" 
+                name="imagem"
+                style="
+                    width: 100%;
+                    height: calc(1.1em + .75rem + 2px);
+                    margin-top:3px;
+                    font-size: 1rem;
+                    font-weight: 400;
+                    line-height: 1.5;
+                    color: #495057;
+                    background-clip: padding-box;
+                    border: 1px solid #ced4da;
+                    border-radius: .25rem;"
+            >
+        
     </div>
 </div>
 
@@ -50,13 +65,16 @@
 <!--CONFIRMAÇÃO SE PODE OU NÃO PUBLICAR O CURSO-->
 <div class="form-check">
     <p>
-        <input 
-            class="form-check-input position-static" 
-            type="checkbox" 
-            value="true"
-            {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : '' }}
-        >
-        <label>Deseja publicar o curso?</label>
+        <label> <br>
+            <input 
+                class="form-check-input position-static" 
+                type="checkbox" 
+                name="publicar"
+                value="true"
+                {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : '' }}
+            >
+            Deseja publicar o curso?
+        </label>
     </p> <br>
 </div>
 
