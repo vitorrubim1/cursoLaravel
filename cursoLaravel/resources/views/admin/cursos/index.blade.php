@@ -30,7 +30,7 @@
                         <td>{{ $registro->titulo }}</td>
                         <td>{{ $registro->descricao }}</td>
                         <td>
-                            <img width="200"  src="{{asset($registro->imagem)}}" alt="{{ $registro->titulo }}">
+                            <img width="150"  src="{{asset($registro->imagem)}}" alt="{{ $registro->titulo }}">
                         </td> <!-- "asset" é o helper do laravel, auxilia na procura de imagem -->
                         <td>{{ $registro->publicado }}</td>
                         <td>
