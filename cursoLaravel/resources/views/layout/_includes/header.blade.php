@@ -34,7 +34,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Cursos</a>
+                        <a class="nav-link" href="{{ route('admin.cursos') }}">Cursos</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Sobre</a>

@@ -36,29 +36,28 @@
 <!--IMAGEM-->
     <div class="form-group col-md-5">
         
-            <input 
-                type="file" 
-                name="imagem"
-                style="
-                    width: 100%;
-                    height: calc(1.1em + .75rem + 2px);
-                    margin-top:3px;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    line-height: 1.5;
-                    color: #495057;
-                    background-clip: padding-box;
-                    border: 1px solid #ced4da;
-                    border-radius: .25rem;"
-            >
-        
+            <label style="margin-top: -14px; color:#00000ee"> Selecione uma Imagem
+                <input 
+                    type="file" 
+                    name="imagem"
+                    style="
+                        width: 70%;
+                        height: calc(0.83em + .75rem + 2px);
+                        font-size: 1rem;
+                        font-weight: 400;
+                        line-height: 1.5;
+                        color: #495057;
+                        border: 1px solid #ced4da;
+                        border-radius: .25rem;">
+            </label>
     </div>
 </div>
 
 <!--VERIFICANDO SE A IMAGEM EXISTE-->
 @if(isset($registro->imagem))
     <div class="form-group">
-        <img src="{{ asset($registro->imagem) }}" width="150">
+        <img src="{{ asset($registro->imagem) }}" width="300">
+        <label>Imagem atual do Curso</label>
     </div>
 @endif
 
@@ -69,7 +68,7 @@
             <input 
                 class="form-check-input position-static" 
                 type="checkbox" 
-                name="publicar"
+                name="publicado"
                 value="true"
                 {{ isset($registro->publicado) && $registro->publicado == 'sim' ? 'checked' : '' }}
             >

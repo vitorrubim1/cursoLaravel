@@ -48,11 +48,54 @@ class CursoController extends Controller
             $nomeImagem = "imagem_".$num.".".$ex; //MONTANDO O NOME DA IMAGEM
             $imagem->move($dir, $nomeImagem);
             $dados['imagem'] = $dir."/".$nomeImagem;
-
-            Curso::create($dados); //SALVANDO NO BANCO
+        }
+        Curso::create($dados); //SALVANDO NO BANCO
 
             //ENCAMINHANDO O USUÁRIO PARA A LISTAGEM
             return redirect()->route('admin.cursos');
-        }
-    }
+        }   
+
+
+
+
+        //EDITAR
+        public function editar($id){
+            $registro = Curso::find($id); //fazendo uma busca pelo id
+            return view('admin.cursos.editar',compact('registro')); //variavel registro
+        } 
+            //METÓDO DE SALVAR 
+        public function atualizar(Request $req, $id){
+            //REQUEST, REQUISIÇÃO, RECEBE O POST DO FORM
+
+            $dados = $req->all(); //BUSCA TODOS OS DADOS
+
+
+            //PARA VER SE PODE PUBLICAR O CURSO (CHECKBOX)
+            if(isset($dados['publicado'])){
+                $dados['publicado'] = "sim";
+            } else {
+                $dados['publicado'] = "nao";
+            }
+
+
+            //TRATAMENTO DE IMAGEM
+            //VERIFICANDO A IMAGEM, SE TEM ARQUIVO
+            if($req->hasFile('imagem')){
+                $imagem = $req->file('imagem');
+                $num = rand (1111, 9999); //GERANDO UM NÚMERO RANDOMICO, (ALEATÓRIO)
+                $dir = "img/cursos"; //DIRETÓRIO
+                $ex = $imagem->guessClientExtension(); //E VERIFICANDO QUAL A EXTENSÃO DA IMAGEM
+                $nomeImagem = "imagem_".$num.".".$ex; //MONTANDO O NOME DA IMAGEM
+                $imagem->move($dir, $nomeImagem);
+                $dados['imagem'] = $dir."/".$nomeImagem;
+            }
+
+            Curso::find($id)->update($dados); //ATUALIZANDO
+
+            //QUASE A MESMA COISA DO SALVAR NO BANCO
+
+                //ENCAMINHANDO O USUÁRIO PARA A LISTAGEM
+                return redirect()->route('admin.cursos');
+            }
+
 }
