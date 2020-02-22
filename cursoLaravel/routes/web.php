@@ -1,8 +1,7 @@
 <?php
 
-Route::get('/', function () {
-    return view('home');
-});
+
+Route::get('/', ['as' => 'site.home', 'uses' => 'Site\HomeController@index']);
 
 Route::get('/contato', ['uses' => 'ContatoController@index']);
 
