@@ -11,7 +11,7 @@
     @foreach ($cursos as $curso)
       <div class="row row-cols-1 row-cols-md-3">
         <div class="col mb-5">
-          <div class="card border-dark" width="200">
+          <div class="card border-dark">
             <div class="card-header bg-dark text-white" >
               <img src="{{ asset($curso->imagem) }}" class="card-img-top">
             </div>
@@ -22,6 +22,7 @@
           </div>
         </div>
       </div>      
+
     @endforeach
 
 </div>
