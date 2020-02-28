@@ -9,19 +9,16 @@
 
     <!--CARDS DOS CURSOS-->
     @foreach ($cursos as $curso)
-      <div class="row row-cols-1 row-cols-md-3">
-        <div class="col mb-5">
-          <div class="card border-dark">
-            <div class="card-header bg-dark text-white" >
-              <img src="{{ asset($curso->imagem) }}" class="card-img-top">
-            </div>
-            <div class="card-body bg-dark text-white">
-              <h5 class="card-title">{{ $curso->titulo }}</h5>
-              <p class="card-text">{{ $curso->descricao }}</p>
-            </div>
-          </div>
+      <div class="card text-white bg-dark mb-3" id="cards">
+        <div class="card-header">
+          <img src="{{ asset($curso->imagem) }}" class="img-fluid" id="img">
         </div>
-      </div>      
+
+        <div class="card-body">
+          <h5 class="card-title">{{$curso->titulo}}</h5>
+          <p class="card-text">{{$curso->descricao}}</p>
+        </div>
+      </div>    
 
     @endforeach
 
