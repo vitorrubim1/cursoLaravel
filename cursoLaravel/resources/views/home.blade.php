@@ -1,27 +1,17 @@
-@extends('layout.site')
+@extends('layouts.app')
 
-@section('titulo', 'Cursos')
-
-@section('conteudo')
+@section('content')
 <div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Dashboard</div>
 
-    <br><h3 class="col px-md-5">Lista de cursos</h3><br>
-
-    <!--CARDS DOS CURSOS-->
-    @foreach ($cursos as $curso)
-      <div class="card text-white bg-dark mb-3" id="cards">
-        <div class="card-header">
-          <img src="{{ asset($curso->imagem) }}" class="img-fluid" id="img">
+                <div class="panel-body">
+                    You are logged in!
+                </div>
+            </div>
         </div>
-
-        <div class="card-body">
-          <h5 class="card-title">{{$curso->titulo}}</h5>
-          <p class="card-text">{{$curso->descricao}}</p>
-        </div>
-      </div>    
-
-    @endforeach
-
+    </div>
 </div>
-
 @endsection

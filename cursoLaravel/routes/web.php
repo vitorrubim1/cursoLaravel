@@ -3,7 +3,11 @@
 
 Route::get('/', ['as' => 'site.home', 'uses' => 'Site\HomeController@index']);
 
-Route::get('/contato', ['uses' => 'ContatoController@index']);
+//ROTAS PARA LOGIN 
+Route::get('/login', ['as' => 'site.login', 'uses' => 'Site\LoginController@index']);
+Route::post('/login/entrar', ['as' => 'site.login.entrar', 'uses' => 'Site\LoginController@entrar']);
+
+Route::get('/contato{id?}', ['uses' => 'ContatoController@index']);
 
 
 Route::post('/contato', ['uses' => 'ContatoController@criar']);
@@ -20,3 +24,7 @@ Route::get('/admin/cursos/deletar/{id}', ['as' => 'admin.cursos.deletar', 'uses'
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
